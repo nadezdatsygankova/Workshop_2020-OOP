@@ -1,4 +1,4 @@
-/*
+/* Author Nadezda Tsygankova
 
 Ex.1
 
@@ -10,64 +10,65 @@ but a vector containing 1, 2, 3, 4 is not).
 
 */
 
-
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 template <typename T>
-bool palindromes(std::vector<T> v)
+bool isPalindrome(std::vector<T> list)
 {
-   std::vector<T> v2;
-   v2 = v;
-   std::reverse(v2.begin(), v2.end());
-  
-   if (v2 == v)
+  // int sizeV = list.size();
+ 
+   if (list.at(0) != list.at(list.size() -1))
    {
-      return true;
+      return false;
    }
    else
-      return false;
+   {
+      std::vector<T> copy = list;
 
+      std::reverse(copy.begin(), copy.end());
+      return copy == list;
+   }
+   
 }
+template <typename T>
+void printVector(std::vector <T> v)
+{
+   for (int i = 0; i < v.size(); i++) {
+      std::cout << v.at(i)<<" ";
+   }
+}
+
+
+
+template <typename T>
+void checkList(std::vector<T> list, std::string name)
+{
+   std::cout << "This vector - (";
+   printVector(list);
+   std::cout <<") of " + name + (isPalindrome(list) ? " is" : " is not") + " palindrome";
+   std::cout << std::endl;
+}
+
+
 int main() {
 
-   
-   std::vector <int> number{1,2,3,2,1};
-   std::vector <int> number2{ 1,2,3,4 };
-   std::vector <float> floatNumber{ 2.3,8.5,5.0,8.5,2.3 };
-   std::vector <char> charL{ 'a','b','c','b','a' };
-   
-   //for int
-   if (palindromes(number) == 1) {
-      std::cout << "These vector of int numbers is a palindrome." << std::endl;
-   }
-   else 
-      std::cout << "These vector of int numbers is not a palindrome."<<std::endl;
-   if (palindromes(number2) == 1) {
-      std::cout << "These vector of int numbers is a palindrome." << std::endl;
-   }
-   else
-      std::cout << "These vector of int numbers is not a palindrome." << std::endl;
 
 
-   //for float
-   if (palindromes(floatNumber) == 1) {
-      std::cout << "These vector of float numbers is a palindrome."<< std::endl;
-   }
-   else
-      std::cout << "These vector of float numbers is not a palindrome."<< std::endl;
-   //for char
-   if (palindromes(charL) == 1) {
-      std::cout << "These vector of char is a palindrome."<< std::endl;
-   }
-   else
-      std::cout << "These vector of char is not a palindrome."<< std::endl;
+   std::vector<int> nums = { 2, 8, 5, 8, 2 };
+   std::vector<int> numsNotP = { 2, 4, 5, 8, 5 };
+   std::vector<float> floats = { 2.3, 8.5, 5.0, 8.5, 2.3 };
+   std::vector<char> chars = { 'a', 'b', 'c', 'b', 'a' };
+   std::vector<std::string> strings = { "abc", "123", "abc" };
 
+
+   checkList(nums, "int numbers");
+   checkList(numsNotP, "int numbers");
+   checkList(floats, "float numbers");
+   checkList(chars, "chars");
+   checkList(strings, "strings");
 
    return 0;
 }
-
-
-
