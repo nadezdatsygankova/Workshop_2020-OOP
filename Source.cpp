@@ -18,11 +18,9 @@ but a vector containing 1, 2, 3, 4 is not).
 template <typename T>
 bool isPalindrome(std::vector<T> list)
 {
-   
- 
-   if (list.size() < 2) {
+   if (list.size() < 2) 
       return false;
- }
+ 
    else
    {
       if (list.at(0) != list.at(list.size() - 1))
@@ -31,28 +29,15 @@ bool isPalindrome(std::vector<T> list)
       }
       else
       {
-         int flag = 0;
-       
          for (int i = 1; i < list.size() / 2; i++)
          {
-            
                if (list.at(i) != list.at(list.size()-i-1))
                {
-                  flag = 1;
+                  return false;
                }
-               else
-               {
-                  flag = 0;
-               }
-               
             }
-         if (flag == 1)
-            return false;
-         
-         else 
             return true;
          }
-   
       }
    }
    
@@ -78,16 +63,12 @@ void checkList(std::vector<T> list, std::string name)
 
 
 int main() {
-
-
-
    std::vector<int> nums = { 2, 8, 5, 8, 2 };
    std::vector<int> numsNotP = { 2, 4, 5, 8, 5 };
    std::vector<float> floats = { 2.3, 8.5, 5.0, 8.5, 2.3 };
    std::vector<char> chars = { 'a', 'b', 'c', 'b', 'a' };
    std::vector<std::string> strings = { "abc", "123", "abc" };
    std::vector<int> single = { 0 };
-
 
    checkList(nums, "int numbers");
    checkList(numsNotP, "int numbers");
