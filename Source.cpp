@@ -1,4 +1,4 @@
-/* Author Nadezda Tsygankova
+/*
 
 Ex.1
 
