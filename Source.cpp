@@ -72,6 +72,8 @@ int main() {
    else
       std::cout << "This float numbers are not palindrom.";
 */
+   
+      return 0;
 
 }
 
