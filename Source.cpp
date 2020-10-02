@@ -1,4 +1,4 @@
-/* Author Nadezda Tsygankova
+/* 
 
 Ex.1
 
@@ -18,7 +18,7 @@ but a vector containing 1, 2, 3, 4 is not).
 template <typename T>
 bool isPalindrome(std::vector<T> list)
 {
-  // int sizeV = list.size();
+ 
  
    if (list.at(0) != list.at(list.size() -1))
    {
