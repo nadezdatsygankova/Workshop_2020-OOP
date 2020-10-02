@@ -1,12 +1,10 @@
-/* Author Nadezda Tsygankova
+/* 
 
 Ex.1
 
 (Palindromes) Write a function template palindrome that takes a vector parameter and returns true or false according to whether the vector 
 does or does not read the same forward as backward (e.g., a vector containing 1, 2, 3, 2, 1 is a palindrome,
 but a vector containing 1, 2, 3, 4 is not).
-
-
 
 */
 
@@ -41,7 +39,6 @@ bool isPalindrome(std::vector<T> list)
       }
    }
    
-
 template <typename T>
 void printVector(std::vector <T> v)
 {
@@ -49,8 +46,6 @@ void printVector(std::vector <T> v)
       std::cout << v.at(i)<<" ";
    }
 }
-
-
 
 template <typename T>
 void checkList(std::vector<T> list, std::string name)
@@ -60,7 +55,6 @@ void checkList(std::vector<T> list, std::string name)
    std::cout <<") of " + name + (isPalindrome(list) ? " is" : " is not") + " palindrome";
    std::cout << std::endl;
 }
-
 
 int main() {
    std::vector<int> nums = { 2, 8, 5, 8, 2 };
