@@ -1,4 +1,4 @@
-/* 
+/* Author Nadezda Tsygankova
 
 Ex.1
 
@@ -34,22 +34,22 @@ bool palindromes(std::vector<T> v)
 int main() {
 
    
-   std::vector <int> number{2,8,5,8,3};
+   std::vector <int> number{1,2,3,2,1};
+   std::vector <int> number2{ 1,2,3,4 };
    std::vector <float> floatNumber{ 2.3,8.5,5.0,8.5,2.3 };
    std::vector <char> charL{ 'a','b','c','b','a' };
-   /*std::vector <std::string> strL;
-   strL[0] = "Hello";
-   strL[1] = "world";
-   strL[2] = "!";
-   strL[3] = "world";
-   strL[4] = "Hello";
-   */
+   
    //for int
    if (palindromes(number) == 1) {
       std::cout << "These vector of int numbers is a palindrome." << std::endl;
    }
    else 
       std::cout << "These vector of int numbers is not a palindrome."<<std::endl;
+   if (palindromes(number2) == 1) {
+      std::cout << "These vector of int numbers is a palindrome." << std::endl;
+   }
+   else
+      std::cout << "These vector of int numbers is not a palindrome." << std::endl;
 
 
    //for float
@@ -64,17 +64,9 @@ int main() {
    }
    else
       std::cout << "These vector of char is not a palindrome."<< std::endl;
-   //for string
 
-  /* if (palindromes(strL) == 1) {
-      std::cout << "This float numbers are palindrom.";
-   }
-   else
-      std::cout << "This float numbers are not palindrom.";
-*/
-   
-      return 0;
 
+   return 0;
 }
 
 
