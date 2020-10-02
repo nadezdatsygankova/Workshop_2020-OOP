@@ -6,8 +6,6 @@ Ex.1
 does or does not read the same forward as backward (e.g., a vector containing 1, 2, 3, 2, 1 is a palindrome,
 but a vector containing 1, 2, 3, 4 is not).
 
-
-
 */
 
 #include <vector>
@@ -18,7 +16,7 @@ but a vector containing 1, 2, 3, 4 is not).
 template <typename T>
 bool isPalindrome(std::vector<T> list)
 {
-   for (int i = 1; i < list.size() / 2; i++)
+   for (int i = 0; i < list.size() / 2; i++)
    {
       if (list.at(i) != list.at(list.size() - i - 1))
       {
@@ -28,42 +26,36 @@ bool isPalindrome(std::vector<T> list)
    return true;
 }
 
-   
-
-
-   template <typename T>
-   void printVector(std::vector <T> v)
-   {
-      for (int i = 0; i < v.size(); i++) {
-         std::cout << v.at(i) << " ";
-      }
+template <typename T>
+void printVector(std::vector <T> v)
+{
+   for (int i = 0; i < v.size(); i++) {
+      std::cout << v.at(i) << " ";
    }
+}
 
+template <typename T>
+void checkList(std::vector<T> list, std::string name)
+{
+   std::cout << "This vector - (";
+   printVector(list);
+   std::cout << ") of " + name + (isPalindrome(list) ? " is" : " is not") + " palindrome";
+   std::cout << std::endl;
+}
 
+int main() {
+   std::vector<int> nums = { 2, 8, 5, 8, 2 };
+   std::vector<int> numsNotP = { 2, 4, 5, 8, 5 };
+   std::vector<float> floats = { 2.3, 8.5, 5.0, 8.5, 2.3 };
+   std::vector<char> chars = { 'a', 'b', 'c', 'b', 'a' };
+   std::vector<std::string> strings = { "abc", "123", "abc" };
+   std::vector<int> single = { 0 };
 
-   template <typename T>
-   void checkList(std::vector<T> list, std::string name)
-   {
-      std::cout << "This vector - (";
-      printVector(list);
-      std::cout << ") of " + name + (isPalindrome(list) ? " is" : " is not") + " palindrome";
-      std::cout << std::endl;
-   }
-
-
-   int main() {
-      std::vector<int> nums = { 2, 8, 5, 8, 2 };
-      std::vector<int> numsNotP = { 2, 4, 5, 8, 5 };
-      std::vector<float> floats = { 2.3, 8.5, 5.0, 8.5, 2.3 };
-      std::vector<char> chars = { 'a', 'b', 'c', 'b', 'a' };
-      std::vector<std::string> strings = { "abc", "123", "abc" };
-      std::vector<int> single = { 0 };
-
-      checkList(nums, "int numbers");
-      checkList(numsNotP, "int numbers");
-      checkList(floats, "float numbers");
-      checkList(chars, "chars");
-      checkList(strings, "strings");
-      checkList(single, "int numbers");
-      return 0;
-   }
+   checkList(nums, "int numbers");
+   checkList(numsNotP, "int numbers");
+   checkList(floats, "float numbers");
+   checkList(chars, "chars");
+   checkList(strings, "strings");
+   checkList(single, "int numbers");
+   return 0;
+}
