@@ -1,4 +1,4 @@
-/* 
+/* Author Nadezda Tsygankova
 
 Ex.1
 
@@ -18,21 +18,45 @@ but a vector containing 1, 2, 3, 4 is not).
 template <typename T>
 bool isPalindrome(std::vector<T> list)
 {
+   
  
- 
-   if (list.at(0) != list.at(list.size() -1))
-   {
+   if (list.size() < 2) {
       return false;
-   }
+ }
    else
    {
-      std::vector<T> copy = list;
-
-      std::reverse(copy.begin(), copy.end());
-      return copy == list;
+      if (list.at(0) != list.at(list.size() - 1))
+      {
+         return false;
+      }
+      else
+      {
+         int flag = 0;
+       
+         for (int i = 1; i < list.size() / 2; i++)
+         {
+            
+               if (list.at(i) != list.at(list.size()-i-1))
+               {
+                  flag = 1;
+               }
+               else
+               {
+                  flag = 0;
+               }
+               
+            }
+         if (flag == 1)
+            return false;
+         
+         else 
+            return true;
+         }
+   
+      }
    }
    
-}
+
 template <typename T>
 void printVector(std::vector <T> v)
 {
@@ -62,6 +86,7 @@ int main() {
    std::vector<float> floats = { 2.3, 8.5, 5.0, 8.5, 2.3 };
    std::vector<char> chars = { 'a', 'b', 'c', 'b', 'a' };
    std::vector<std::string> strings = { "abc", "123", "abc" };
+   std::vector<int> single = { 0 };
 
 
    checkList(nums, "int numbers");
@@ -69,6 +94,6 @@ int main() {
    checkList(floats, "float numbers");
    checkList(chars, "chars");
    checkList(strings, "strings");
-
+   checkList(single, "int numbers");
    return 0;
 }
