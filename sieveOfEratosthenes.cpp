@@ -76,5 +76,8 @@ int main()
       printVector(vectorOnlyPrime);
    }
 
+   else
+      std::cout << "This number is prime." << std::endl;
+
    return 0;
 }
