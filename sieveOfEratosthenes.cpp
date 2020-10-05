@@ -68,11 +68,9 @@ int main()
    std::vector<int> newVector;
    std::vector<int> vectorOnlyPrime;
    std::cin >> n;
-   //std::cout << primeNumber(n) << std::endl;
    if (primeNumber(n) == 0)
    {
       newVector = arrayofN(n);
-      // printVector(newVector);
       vectorOnlyPrime = printNumber(newVector, n);
       std::cout << "The prime factors of the " << n << ": ";
       printVector(vectorOnlyPrime);
