@@ -11,31 +11,35 @@ that number is prime.
 #include <bitset>
 #include<iostream>
 
-void printBitSet(std::bitset<1023> number) {
 
-   for (int k = 0; k < 1023; k++)
-   {
-      std::cout << number[k] << " ";
-   }
-}
-
-void eratosthenes(std::bitset<1023> number)
+std::bitset<1023> eratosthenes(int n )
 {
-
-   for (int i = 2; i * i < 1023; i++)
+   std::bitset<1023> number;
+   number.set();
+   for (int i = 2; i  < 1023; i++)
    {
-      if (number.test(i))
+      if (number[i] != 0)
       {
          for (int y = 2 * i; y < 1023; y += i)
          {
-            if (y % y == y % i)
-            {
-               //number[i] = 0;
-               number.reset(y);
-            }
+            number[y] = 0;
          }
       }
    }
+   return number;
+}
+
+
+void findPrime(std::bitset<1023> number, int findN)
+{
+ 
+      if (number[findN] == 1)
+      {
+         std::cout << "This number " <<findN<< " is prime" << std::endl;
+      }
+      else 
+         std::cout << "This number " << findN << " is not prime" << std::endl;
+   
 }
 
 void printArrayPri(std::bitset<1023> number) {
@@ -47,47 +51,17 @@ void printArrayPri(std::bitset<1023> number) {
    }
 }
 
-bool primeNumber(int n)
-{
-   bool flag = true;
-   if (n == 0 || n == 1)
-   {
-      flag = false;
-   }
-   else {
-      for (int i = 2; i <= n / 2; i++)
-      {
-         if (n % i == 0)
-         {
-            flag = false;
-            break;
-         }
-      }
-      return flag;
-   }
-}
 int main()
 {
    std::bitset<1023> number;
-   number.set();
-   //printBitSet(number);
-   std::cout << std::endl;
-   eratosthenes(number);
-   //printBitSet(number);
+   
+   int n;
+   std::cout << "Enter a number beetween 2 and 1023 : ";
+   std::cin >> n;
+   number=eratosthenes(n);
    printArrayPri(number);
    std::cout << std::endl;
-   std::cout << std::endl;
-   std::cout << std::endl;
-   std::cout << "Enter a number: ";
-   int n;
-   std::cin >> n;
-   if (primeNumber(n))
-   {
-      std::cout << n << " is a prime number";
-   }
-   else
-   {
-      std::cout << n << " is not a prime number";
-   }
+   findPrime(number, n);
+
    return 0;
 }
