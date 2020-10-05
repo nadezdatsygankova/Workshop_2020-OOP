@@ -46,7 +46,7 @@ std::vector<int> printNumber(std::vector<int> newVec, int n) {
    for (int i = 2; i < n; i++) {
       if (n % newVec[i] == 0)
       {
-         newV.push_back(newVec[i]);
+         newV.push_back(i);
          n = n / i;
       }
    }
