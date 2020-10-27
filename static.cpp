@@ -9,12 +9,14 @@ class Apple
 public:
 	Apple(int weight, std::string color);
 	~Apple();
-	static int Count;
+	
 	int getId();
+	static int getCount();
 private:
 	int id;
 	int weight;
 	std::string color;
+	static int Count;
 	
 };
 
@@ -37,7 +39,10 @@ int Apple::getId()
 	return id;
 }
 
-
+ int Apple::getCount()
+{
+	return Count;
+}
 
 
 
@@ -48,5 +53,7 @@ int main() {
 	//std::cout << Apple::Count << std:: endl;
 	std::cout << apple.getId() << std::endl;
 	std::cout <<apple1.getId() << std::endl;
+	// count print
+	std::cout << Apple::getCount() << std::endl;
 
 }
