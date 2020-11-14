@@ -1,0 +1,44 @@
+class EvenFuctor
+{
+public:
+
+   void operator()(int value)
+   {
+      if (value % 2)
+      {
+         evenSum += value;
+         evenCount++;
+      }
+   }
+
+   void ShowEvenSum()
+   {
+   std:: cout << "Sum even numbers = " << evenSum<< std::endl;
+
+   }
+   void ShowEvenCount()
+   {
+      std::cout << "Count even numbers = " << evenCount<< std::endl;
+   }
+
+private:
+   int evenSum = 0;
+   int evenCount = 0;
+};
+
+
+int main ()
+{
+
+int arr[] = { 1,22,85,74,5 };
+
+  EvenFuctor ef;
+  for (auto element : arr)
+  {
+     ef(element);
+  }
+
+  ef.ShowEvenCount();
+  ef.ShowEvenSum();
+
+}
