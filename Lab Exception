@@ -1,0 +1,81 @@
+/*
+Author: Nadezda Tsygankova
+Laboratory Exercise
+TASK1
+Due date: 11/24
+*/
+
+// Starter Code
+
+#include <iostream>
+class subRange
+{
+public:
+   subRange(int, int);
+   int getValue();
+private:
+   int lower, upper;
+};
+
+subRange::subRange(int low, int high)
+{
+   lower = low;
+   upper = high;
+}
+/* Version 1
+int subRange::getValue()
+{
+   int v;
+   std::cout << "Enter value [ " << lower << ", " << upper << " ]: ";
+   std::cin >> v;
+
+   if (v<lower || v>upper)
+   {
+      throw v;
+   }
+   return v;
+}
+*/
+//Version 2
+int subRange::getValue()
+{
+   int v;
+   bool q = false;
+   while (!q)
+   {
+      std::cout << "Enter value [ " << lower << ", " << upper << " ]: ";
+      std::cin >> v;
+      try {
+         if (v<lower || v>upper)
+            throw "Value out of range";
+         q = true;
+      }
+      catch(const char* err)
+      {
+         std::cout <<   err << std::endl;
+      }
+     
+   }
+   return v;
+}
+
+void main()
+{
+   /*Version1 
+   try {
+      subRange x(1, 10);
+      std::cout << x.getValue() << std::endl;
+   }
+   catch (const int ex)
+   {
+      std::cout << "value out of range: " <<ex<< std::endl;
+   }
+   */
+
+
+   //Version 2
+   subRange x(1, 10);
+   std::cout << x.getValue() << std::endl;
+
+
+}
