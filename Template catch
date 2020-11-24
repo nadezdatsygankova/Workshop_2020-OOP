@@ -1,0 +1,65 @@
+
+
+/*
+Take the first version of the code that you completed for exercise 1 and convert 
+the subRange class from a class that allows a user to enter integers to a template 
+class that allows a user to enter a value in a sub-range for any simple data type 
+(e.g. int, double, char). Test your class by declaring variables of type 
+subRange<int>, subRange<double>,
+and subRange<char> and input values within and outside the allowed range.*/
+
+
+#include <iostream>
+
+template<typename T>
+class subRange
+{
+public:
+   subRange(T, T);
+   T getValue();
+private:
+   T lower, upper;
+};
+template<typename T>
+subRange<T>::subRange(T low, T high)
+{
+   lower = low;
+   upper = high;
+}
+template<typename T>
+T subRange<T>::getValue()
+{
+   T v;
+   bool q = false;
+   while (!q)
+   {
+      std::cout << "Enter value [ " << lower << ", " << upper << " ]: ";
+      std::cin >> v;
+      try {
+         if (v<lower || v>upper)
+            throw "Value out of range";
+         q = true;
+      }
+      catch (const char* err)
+      {
+         std::cout << err << std::endl;
+      }
+
+   }
+   return v;
+}
+
+
+int  main()
+{
+
+   subRange<int> x(1, 10);
+   std::cout << x.getValue() << std::endl;
+
+   subRange<double> y(1.5, 2.6);
+   std::cout << y.getValue() << std::endl;
+
+   subRange<char> c('a', 'k');
+   std::cout << c.getValue() << std::endl;
+   return 0;
+}
